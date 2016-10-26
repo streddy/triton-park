@@ -11,10 +11,15 @@
    </head>
 
    <body>
-      <h3>Campus Map</h3>
-      <div id="map"></div>
-      <script>
-         function initMap() {;
+       <br>
+       <!--User inputs for destination-->
+       <input type="text" placeholder="Enter Your Destination" name="Destination"/>
+       <br>
+    
+       <h3>Campus Map</h3>
+       <div id="map"></div>
+       <script>
+        function initMap() {;
             var campus = {lat: 32.8811083, lng: -117.2375732};
             var map = new google.maps.Map(document.getElementById('map'), {
                zoom: 4,
@@ -26,8 +31,19 @@
             });
          }
       </script>
+      
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=   TODO   &callback=initMap">
       </script>
-   </body>
+      
+      <br>
+      <!--Selection for permit type-->
+        <select>
+        <option value = "A Permit"> Permit-A</option>
+        <!--Display default selection-->
+        <option value = "B Permit" selected="selected"> Permit-B</option>
+        <option value = "S Permit"> Permit-S</option>
+        </select>
+        
+    </body>
 </html>
