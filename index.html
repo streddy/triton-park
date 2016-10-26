@@ -19,15 +19,35 @@
        <h3>UCSD Campus Map</h3>
        <div id="map"></div>
        <script>
-        function initMap() {;
+        function initMap() {
             var campus = {lat: 32.8811083, lng: -117.2375732};
             var map = new google.maps.Map(document.getElementById('map'), {
                zoom: 15,
                center: campus
             });
+
+            var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Hopkins Parking P701D</h1>'+ 
+            '<div id="bodyContent">'+
+            '<p><b>Capacity</b></p>' +
+            '<p>15 spots left </p>'+ 
+            '<p> Estimate: 8 spots left in 30 minutes </p>'+
+            '</div>'+
+            '</div>';
+
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+            
             var marker = new google.maps.Marker({
                position: campus,
                map: map
+            });
+
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
             });
          }
       </script>
