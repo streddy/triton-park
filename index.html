@@ -4,8 +4,8 @@
       <title>Triton Park</title>
       <style>
          #map {
-            height: 400px;
-            width: 100%;
+            height: 600px;
+            width: 60%;
          }
       </style>
    </head>
@@ -22,7 +22,7 @@
         function initMap() {;
             var campus = {lat: 32.8811083, lng: -117.2375732};
             var map = new google.maps.Map(document.getElementById('map'), {
-               zoom: 4,
+               zoom: 15,
                center: campus
             });
             var marker = new google.maps.Marker({
