@@ -18,7 +18,7 @@
   margin-left: 12px;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
-  width: 2500px;
+  width: 250px;
 }
 
 #pac-input:focus {
@@ -26,9 +26,15 @@
 }
 /*-----------------------------------------*/
 
-
-.element
-{
-    margin: auto;
+.element{
+    font-family: Roboto;
+}
+         
+#map {
+    height: 600px;
     width: 100%;
+}
+
+h1{
+    text-shadow: 0 0 45px white;
 }
