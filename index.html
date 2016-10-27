@@ -5,89 +5,28 @@
       <style>
          #map {
             height: 600px;
-            width: 60%;
+            width: 100%;
          }
       </style>
       <link href="index.css" rel="stylesheet">
    </head>
 
    <body style ="margin:0px; height:0px">
-      
-
-
        <!--User inputs for destination-->    
-       <input id="pac-input" class="controls" type="text" placeholder="Enter Your Destination">
   
        <br>
-     
-     
-       
+
        <h3><center>Triton Park</center></h3>
        <div class = "element" id="map"></div>
+       <input id="pac-input" class="controls" type="text" placeholder="Enter Your Destination">
        <!--//Below is the Script for Map-->
     
-       <script>
-        function initMap() {
-            var campus = {lat: 32.8811083, lng: -117.2375732};
-            var map = new google.maps.Map(document.getElementById('map'), {
-               zoom: 15,
-               center: campus
-            });
-
-      
-            // Create the search box and link it to the UI element.
-            var input = document.getElementById('pac-input');
-            var searchBox = new google.maps.places.SearchBox(input);
-            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-            // Bias the SearchBox results towards current map's viewport.
-            map.addListener('bounds_changed', function() {
-              searchBox.setBounds(map.getBounds());
-            });
-            var markers = [];
-
-            
-            var contentString = '<div id="content">'+
-            '<div id="lotInfo">'+
-            '</div>'+
-            '<h1 id="firstHeading" class="firstHeading"><center>Hopkins Parking P701D</center></h1>'+ 
-            '<div id="bodyContent"><center>'+
-            '<h2><b>Capacity</b></h2>' +
-            '<img src="images/capacity.png" width="25%">' +
-            '<p><b>20</b> spots left </p>'+ 
-            '<p> Estimate: <b>12</b> spots left in 30 minutes </p>'+
-            '</center></div>'+
-            '</div>';
-            var infowindow = new google.maps.InfoWindow({
-              content: contentString
-            });
-            
-            var marker = new google.maps.Marker({
-               position: campus,
-               map: map,
-               animation: google.maps.Animation.DROP 
-            });
-            marker.addListener('click', function() {
-              infowindow.open(map, marker);
-            });
-         }
-           
-           
-           
-      </script>
-      
       <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVFEMeSuV8YL9OcBMx7wmFx71BkscZEbo&callback=initMap
-      &libraries=places&callback=initMap">
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVFEMeSuV8YL9OcBMx7wmFx71BkscZEbo&libraries=places&callback=initMap">
       </script>
+       <script src="js/map.js"></script>
+
       <!--^^^^^^^^^^^^^^^Scripts for map^^^^^^^^^^^^^^^^^^-->
-      
-  
-       
-       
-       
-       
-      
       
       <!--Selection for permit type-->
         <select name = "Your Permit Type" >
@@ -96,7 +35,5 @@
         <option value = "B Permit" selected="selected"> Permit-B</option>
         <option value = "S Permit"> Permit-S</option>
         </select>
-       </div> 
-       
-    
+    </body>
 </html>
