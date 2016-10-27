@@ -28,6 +28,8 @@
 
 .element{
     font-family: Roboto;
+    margin: auto;
+    width: 10%;
 }
          
 #map {
@@ -37,4 +39,13 @@
 
 h1{
     text-shadow: 0 0 45px white;
+}
+
+/*absolute selector*/
+select, options{ 
+  z-index:10;
+  top:115px;
+  left:390px;
+  position:absolute;
+
 }

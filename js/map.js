@@ -24,10 +24,12 @@ function initMap() {
    '</div>'+
    '<h1 id="firstHeading" class="firstHeading"><center>Hopkins Parking P701D</center></h1>'+ 
    '<div id="bodyContent"><center>'+
-   '<h2><b>Capacity</b></h2>' +
+   '<h3><b>Capacity</b></h3>' +
    '<img src="images/capacity.png" width="25%">' +
    '<p><b>20</b> spots left </p>'+ 
    '<p> Estimate: <b>12</b> spots left in 30 minutes </p>'+
+   '<h3><b>Availability</b></h3>' +
+   '<img src="images/available_spots.png" width="70%">' +
    '</center></div>'+
    '</div>';
             
