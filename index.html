@@ -4,52 +4,69 @@
       <title>Triton Park</title>
       <style>
          #map {
-            height: 400px;
-            width: 100%;
+            height: 600px;
+            width: 60%;
          }
       </style>
       <link href="index.css" rel="stylesheet">
    </head>
 
    <body>
-       <div class = "webElement" id="userInput">
-       <input type="text" placeholder="Enter Your Destination" name="Destination"/> 
+       <div class = "element" id = "userInput">
+       <!--User inputs for destination-->
+       <input type="text" placeholder="Enter Your Destination" name="Destination"/>
        </div>
+       <br>
     
-       <div class = "webElement" id="mapTile">
-           <h3><center>Campus Map</center></h3>
-       </div>
-       
-       <div class = "webElement" id="map">
+       <h3><center>UCSD Campus Map</center></h3>
+       <div class = "element" id="map">
        <script>
-        function initMap() {;
+        function initMap() {
             var campus = {lat: 32.8811083, lng: -117.2375732};
             var map = new google.maps.Map(document.getElementById('map'), {
-               zoom: 4,
+               zoom: 15,
                center: campus
             });
+            var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Hopkins Parking P701D</h1>'+ 
+            '<div id="bodyContent">'+
+            '<p><b>Capacity</b></p>' +
+            '<p>15 spots left </p>'+ 
+            '<p> Estimate: 8 spots left in 30 minutes </p>'+
+            '</div>'+
+            '</div>';
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+            
             var marker = new google.maps.Marker({
                position: campus,
                map: map
+            });
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
             });
          }
       </script>
       
       <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=   TODO   &callback=initMap">
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVFEMeSuV8YL9OcBMx7wmFx71BkscZEbo&callback=initMap">
       </script>
       </div>
+      <br>
       
-        <br>
-        <div class = "webElement" id = "permitType">
-        <!--Selection for permit type-->
+      <div class = "element" id = "permitType">
+       <p align=left>Change your permit type</p>
+      <!--Selection for permit type-->
         <select>
         <option value = "A Permit"> Permit-A</option>
         <!--Display default selection-->
         <option value = "B Permit" selected="selected"> Permit-B</option>
         <option value = "S Permit"> Permit-S</option>
         </select>
-        </div>
-        
+       </div> 
+       
     </body>
 </html>
