@@ -1,8 +1,10 @@
 function initMap() {
+   var campus = {lat: 32.8811083, lng: -117.2375732};
+
    // Map options
    var mapOptions = {
       zoom: 15,
-      center: new google.maps.LatLng(32.8811083, -117.2375732),
+      center: campus,
       styles:
       [{"featureType":"all","elementType":"labels.text.fill",
       "stylers":[{"color":"#ffffff"}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"color":"#000000"},
