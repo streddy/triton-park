@@ -26,20 +26,26 @@
 }
 /*-----------------------------------------*/
 
-
-.element
-{
-  margin: auto;
-  width: 10%;
+.element{
+    font-family: Roboto;
+    margin: auto;
+    width: 10%;
+}
+         
+#map {
+    height: 600px;
+    width: 100%;
 }
 
+h1{
+    text-shadow: 0 0 45px white;
+}
 
 /*absolute selector*/
 select, options{ 
   z-index:10;
-  top:94px;
+  top:115px;
   left:390px;
   position:absolute;
-    width:130px;
-   
+  width:130px;
 }
