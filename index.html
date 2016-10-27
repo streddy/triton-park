@@ -11,15 +11,19 @@
       <link href="index.css" rel="stylesheet">
    </head>
 
-   <body>
-       <div class = "element" id = "userInput">
-       <!--User inputs for destination-->
-       <input type="text" placeholder="Enter Your Destination" name="Destination"/>
-       </div>
+   <body style ="margin:0px; height:0px">
+      
+
+
+       <!--User inputs for destination-->    
+       <input id="pac-input" class="controls" type="text" placeholder="Enter Your Destination">
+  
        <br>
-    
+      
        <h3><center>UCSD Campus Map</center></h3>
-       <div class = "element" id="map">
+       <div class = "element" id="map"></div>
+       <!--//Below is the Script for Map-->
+    
        <script>
         function initMap() {
             var campus = {lat: 32.8811083, lng: -117.2375732};
@@ -27,6 +31,17 @@
                zoom: 15,
                center: campus
             });
+            // Create the search box and link it to the UI element.
+            var input = document.getElementById('pac-input');
+            var searchBox = new google.maps.places.SearchBox(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+            // Bias the SearchBox results towards current map's viewport.
+            map.addListener('bounds_changed', function() {
+              searchBox.setBounds(map.getBounds());
+            });
+            var markers = [];
+
+            
             var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
@@ -52,10 +67,11 @@
       </script>
       
       <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVFEMeSuV8YL9OcBMx7wmFx71BkscZEbo&callback=initMap">
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVFEMeSuV8YL9OcBMx7wmFx71BkscZEbo&callback=initMap
+      &libraries=places&callback=initMap">
       </script>
-      </div>
-      <br>
+      <!--^^^^^^^^^^^^^^^Scripts for map^^^^^^^^^^^^^^^^^^-->
+      
       
       <div class = "element" id = "permitType">
        <p align=left>Change your permit type</p>
