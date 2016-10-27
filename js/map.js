@@ -25,6 +25,7 @@ function initMap() {
    '<img src="images/capacity.png" width="25%">' +
    '<p><b>20</b> spots left </p>'+ 
    '<p> Estimate: <b>12</b> spots left in 30 minutes </p>'+
+   '<img src="images/available_spots.png" width="100%">' +
    '</center></div>'+
    '</div>';
             
