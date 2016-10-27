@@ -20,7 +20,7 @@
   
        <br>
       
-       <h3><center>UCSD Campus Map</center></h3>
+       <h3><center>Triton Park</center></h3>
        <div class = "element" id="map"></div>
        <!--//Below is the Script for Map-->
     
@@ -31,10 +31,12 @@
                zoom: 15,
                center: campus
             });
+
             // Create the search box and link it to the UI element.
             var input = document.getElementById('pac-input');
             var searchBox = new google.maps.places.SearchBox(input);
             map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
             // Bias the SearchBox results towards current map's viewport.
             map.addListener('bounds_changed', function() {
               searchBox.setBounds(map.getBounds());
@@ -43,14 +45,15 @@
 
             
             var contentString = '<div id="content">'+
-            '<div id="siteNotice">'+
+            '<div id="lotInfo">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Hopkins Parking P701D</h1>'+ 
-            '<div id="bodyContent">'+
-            '<p><b>Capacity</b></p>' +
-            '<p>15 spots left </p>'+ 
-            '<p> Estimate: 8 spots left in 30 minutes </p>'+
-            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading"><center>Hopkins Parking P701D</center></h1>'+ 
+            '<div id="bodyContent"><center>'+
+            '<h2><b>Capacity</b></h2>' +
+            '<img src="images/capacity.png" width="25%">' +
+            '<p><b>20</b> spots left </p>'+ 
+            '<p> Estimate: <b>12</b> spots left in 30 minutes </p>'+
+            '</center></div>'+
             '</div>';
             var infowindow = new google.maps.InfoWindow({
               content: contentString
@@ -58,7 +61,8 @@
             
             var marker = new google.maps.Marker({
                position: campus,
-               map: map
+               map: map,
+               animation: google.maps.Animation.DROP 
             });
             marker.addListener('click', function() {
               infowindow.open(map, marker);
