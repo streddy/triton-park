@@ -8,16 +8,19 @@
             width: 100%;
          }
       </style>
+      <link href="index.css" rel="stylesheet">
    </head>
 
    <body>
-       <br>
-       <!--User inputs for destination-->
-       <input type="text" placeholder="Enter Your Destination" name="Destination"/>
-       <br>
+       <div class = "webElement" id="userInput">
+       <input type="text" placeholder="Enter Your Destination" name="Destination"/> 
+       </div>
     
-       <h3>Campus Map</h3>
-       <div id="map"></div>
+       <div class = "webElement" id="mapTile">
+           <h3><center>Campus Map</center></h3>
+       </div>
+       
+       <div class = "webElement" id="map">
        <script>
         function initMap() {;
             var campus = {lat: 32.8811083, lng: -117.2375732};
@@ -35,15 +38,18 @@
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=   TODO   &callback=initMap">
       </script>
+      </div>
       
-      <br>
-      <!--Selection for permit type-->
+        <br>
+        <div class = "webElement" id = "permitType">
+        <!--Selection for permit type-->
         <select>
         <option value = "A Permit"> Permit-A</option>
         <!--Display default selection-->
         <option value = "B Permit" selected="selected"> Permit-B</option>
         <option value = "S Permit"> Permit-S</option>
         </select>
+        </div>
         
     </body>
 </html>
