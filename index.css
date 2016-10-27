@@ -44,8 +44,14 @@ h1{
 /*absolute selector*/
 select, options{ 
   z-index:10;
+  position:absolute;
   top:115px;
   left:390px;
-  position:absolute;
   width:130px;
+}
+
+button {
+  position:absolute;
+  top:115px;
+  left:530px;
 }
