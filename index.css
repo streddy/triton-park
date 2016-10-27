@@ -32,3 +32,13 @@
     width: 10%;
 }
 
+
+/*absolute selector*/
+select, options{ z-index:10;
+top:94px;
+    left:600px;
+    position:absolute;
+    
+
+}
+
