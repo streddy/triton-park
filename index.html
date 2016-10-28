@@ -8,6 +8,9 @@
         <font face="Roboto" color="#25A0D5"/>
       <title>Triton Park</title>
       <link href="index.css" rel="stylesheet">
+      <script src="js/map.js"></script>
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <script src="js/handler.js"></script>
    </head>
 
    <body style ="margin:0px; height:0px; background-color:#3A4148">
@@ -23,20 +26,19 @@
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVFEMeSuV8YL9OcBMx7wmFx71BkscZEbo&libraries=places&callback=initMap">
       </script>
-        <script src="js/map.js"></script>
 
       <!--^^^^^^^^^^^^^^^Scripts for map^^^^^^^^^^^^^^^^^^-->
       
    
       <!--Selection for permit type-->
-        <select>
-        <option value = "Your Perit Type" selected="selected"> Your Permit Type</option>
-        <option value = "A Permit"> Permit-A</option>
-        <option value = "B Permit"> Permit-B</option>
-        <option value = "S Permit"> Permit-S</option>
+        <select id="permit-select">
+         <option disabled selected value>Your Permit Type</option>
+         <option value = "A Permit"> Permit-A</option>
+         <option value = "B Permit"> Permit-B</option>
+         <option value = "S Permit"> Permit-S</option>
         </select>
 
-        <button type="button">Find Parking</button>
+        <button id="find-park" type="button">Find Parking</button>
 
     </body>
 </html>
