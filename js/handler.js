@@ -15,6 +15,8 @@ function initializePage() {
          alert("Please select your permit type");
       } else if(loc == "") {
          alert("Please select your destination on campus");
+      } else {
+         createMarker();
       }
    });
 }

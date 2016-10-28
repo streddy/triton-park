@@ -1,5 +1,5 @@
 function initMap() {
-   var campus = {lat: 32.8811083, lng: -117.2375732};
+   campus = {lat: 32.8811083, lng: -117.2375732};
 
    // Map options
    var mapOptions = {
@@ -25,7 +25,7 @@ function initMap() {
    var mapElement = document.getElementById('map');
 
    // Create the map
-   var map = new google.maps.Map(mapElement, mapOptions);
+   map = new google.maps.Map(mapElement, mapOptions);
     
    // Create the search box and link it to the UI element.
    var input = document.getElementById('pac-input');
@@ -36,8 +36,10 @@ function initMap() {
    map.addListener('bounds_changed', function() {
       searchBox.setBounds(map.getBounds());
    });
-   var markers = [];
-         
+   var markers = []; 
+}
+
+function createMarker() {
    var contentString = '<div id="content">'+
    '<div id="lotInfo">'+
    '</div>'+
@@ -64,6 +66,4 @@ function initMap() {
    marker.addListener('click', function() {
       infowindow.open(map, marker);
    });
-    
-    
 }
