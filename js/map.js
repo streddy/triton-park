@@ -36,7 +36,7 @@ function initMap() {
    map.addListener('bounds_changed', function() {
       searchBox.setBounds(map.getBounds());
    });
-   var markers = []; 
+   markers = []; 
 }
 
 function createMarker() {
@@ -66,4 +66,13 @@ function createMarker() {
    marker.addListener('click', function() {
       infowindow.open(map, marker);
    });
+
+   markers.push(marker);
+}
+
+function deleteMarkers() {
+   for(var i = 0; i < markers.length; i++) {
+      markers[i].setMap(null);
+   }
+   markers = [];
 }
