@@ -16,6 +16,7 @@ function initializePage() {
       } else if(loc == "") {
          alert("Please select your destination on campus");
       } else {
+         deleteMarkers();
          createMarker();
       }
    });
