@@ -1,0 +1,41 @@
+{
+   "parking_lots":
+   [
+      {
+         "name":"Gilman Parking Structure",
+         "id":"P451",
+         "lat":"32.87784368",
+         "lng":"-117.23396748",
+         "totalA":"315",
+         "totalB":"270",
+         "totalS":"0",
+         "availableA":"87",
+         "availableB":"46",
+         "availableS":"0"
+      }
+      {
+         "name":"Pangea Parking Structure",
+         "id":"P371",
+         "lat":"32.88427462",
+         "lng":"-117.24257201",
+         "totalA":"78",
+         "totalB":"185",
+         "totalS":"550",
+         "availableA":"22",
+         "availableB":"35",
+         "availableS":"45"
+      }
+      {
+         "name":"Hopkins Parking Structure",
+         "id":"P341",
+         "lat":"32.88379935",
+         "lng":"-117.23878473",
+         "totalA":"80",
+         "totalB":"495",
+         "totalS":"674",
+         "availableA":"53",
+         "availableB":"112",
+         "availableS":"32"
+      }
+   ]
+}
