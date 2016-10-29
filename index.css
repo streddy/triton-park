@@ -1,6 +1,6 @@
 /*Style for searchbox*/
 .controls {
-  margin-top: 10px;
+  margin-top: 5px;
   border: 1px solid transparent;
   border-radius: 2px 0 0 2px;
   box-sizing: border-box;
@@ -15,7 +15,7 @@
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
-  margin-left: 12px;
+  margin-left:450px;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
   width: 250px;
@@ -48,14 +48,14 @@ h2{
 select, options{ 
   z-index:10;
   position:absolute;
-  top:150px;
-  left:125px;
+  top:130px;
+  left:563px;
   width:130px;
 }
 
 button {
   position:absolute;
-  top:150px;
-  left:260px;
+  top:130px;
+  left:700px;
   width:117px;
 }
