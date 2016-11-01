@@ -37,5 +37,198 @@
          "availableB":"112",
          "availableS":"32"
       }
+      {
+         "name":"PC Loop",
+         "id":"P508",
+         "lat":"32.880298977550424",
+         "lng":"-117.2334498167038",
+         "totalA":"13",
+         "totalB":"0",
+         "totalS":"0",
+         "availableA":"3",
+         "availableB":"0",
+         "availableS":"0"
+      }
+      {
+         "name":"Canyon view aquatic cener",
+         "id":"P510",
+         "lat":"32.881366673558276",
+         "lng":"-117.23001658916473",
+         "totalA":"30",
+         "totalB":"167",
+         "totalS":"0",
+         "availableA":"16",
+         "availableB":"60",
+         "availableS":"0"
+      }   
+      {
+         "name":"Warren Resident Hall",
+         "id":"P504",
+         "lat":"32.881416228756855",
+         "lng":"-117.23222136497498",
+         "totalA":"0",
+         "totalB":"0",
+         "totalS":"29",
+         "availableA":"0",
+         "availableB":"0",
+         "availableS":"1"
+      }   
+      {
+         "name":"Jacobs Hall",
+         "id":"P502",
+         "lat":"32.88360563987437",
+         "lng":"-117.23502159118652",
+         "totalA":"153",
+         "totalB":"172",
+         "totalS":"0",
+         "availableA":"70",
+         "availableB":"20",
+         "availableS":"0"
+      }   
+      {
+         "name":"UCSD Park Lane",
+         "id":"",
+         "lat":"32.883146138322005",
+         "lng":"-117.23714590072632",
+         "totalA":"0",
+         "totalB":"30",
+         "totalS":"0",
+         "availableA":"0",
+         "availableB":"7",
+         "availableS":"0"
+      }   
+      {
+         "name":"Library Loop",
+         "id":"P309",
+         "lat":"32.88241633684196",
+         "lng":"-117.23867475986481",
+         "totalA":"25",
+         "totalB":"0",
+         "totalS":"0",
+         "availableA":"5",
+         "availableB":"0",
+         "availableS":"0"
+      }       
+      {
+         "name":"Marshall Apartment",
+         "id":"P308",
+         "lat":"32.88262356503368",
+         "lng":"-117.24001586437225",
+         "totalA":"26",
+         "totalB":"58",
+         "totalS":"18",
+         "availableA":"13",
+         "availableB":"20",
+         "availableS":"3"
+      }  
+      {
+         "name":"Rimac Field",
+         "id":"P359",
+         "lat":"32.88968705361924",
+         "lng":"-117.24069714546204",
+         "totalA":"0",
+         "totalB":"60",
+         "totalS":"0",
+         "availableA":"0",
+         "availableB":"40",
+         "availableS":"0"
+      }  
+      {
+         "name":"Rady School",
+         "id":"P357",
+         "lat":"32.887659962078956",
+         "lng":"-117.24111020565033",
+         "totalA":"0",
+         "totalB":"160",
+         "totalS":"0",
+         "availableA":"0",
+         "availableB":"32",
+         "availableS":"0"
+      }
+      {
+         "name":"Marshall Resident Hall 1",
+         "id":"P304",
+         "lat":"32.88250643611529",
+         "lng":"-117.24269807338715",
+         "totalA":"56",
+         "totalB":"36",
+         "totalS":"0",
+         "availableA":"29",
+         "availableB":"23",
+         "availableS":"0"
+      }
+      {
+         "name":"Marshall Resident Hall 2",
+         "id":"P303",
+         "lat":"32.88142073377352",
+         "lng":"-117.24266052246094",
+         "totalA":"39",
+         "totalB":"102",
+         "totalS":"0",
+         "availableA":"15",
+         "availableB":"32",
+         "availableS":"0"
+      }
+      {
+         "name":"Marshall Resident Hall 3",
+         "id":"P302",
+         "lat":"32.88129909824284",
+         "lng":"-117.24164664745331",
+         "totalA":"30",
+         "totalB":"53",
+         "totalS":"0",
+         "availableA":"11",
+         "availableB":"29",
+         "availableS":"0"
+      }
+      {
+         "name":"Muir Upper Lot",
+         "id":"P207",
+         "lat":"32.880393584045144",
+         "lng":"-117.24134624004364",
+         "totalA":"196",
+         "totalB":"219",
+         "totalS":"0",
+         "availableA":"110",
+         "availableB":"60",
+         "availableS":"0"
+      }
+      {
+         "name":"Muir Lower Lot",
+         "id":"P208",
+         "lat":"32.880316997842925",
+         "lng":"-117.24330961704254",
+         "totalA":"0",
+         "totalB":"152",
+         "totalS":"346",
+         "availableA":"0",
+         "availableB":"66",
+         "availableS":"40"
+      }
+      {
+         "name":"Peterson Loop",
+         "id":"P206",
+         "lat":"32.87915468147404",
+         "lng":"-117.24010169506073",
+         "totalA":"77",
+         "totalB":"0",
+         "totalS":"0",
+         "availableA":"30",
+         "availableB":"0",
+         "availableS":"0"
+      }
+      {
+         "name":"Revelle College",
+         "id":"P102",
+         "lat":"32.872847272637145",
+         "lng":"-117.24243521690369",
+         "totalA":"297",
+         "totalB":"440",
+         "totalS":"0",
+         "availableA":"188",
+         "availableB":"90",
+         "availableS":"0"
+      }
+       
    ]
 }
