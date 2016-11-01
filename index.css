@@ -48,14 +48,14 @@ h2{
 select, options{ 
   z-index:10;
   position:absolute;
-  top:150px;
+  top:130px;
   left:125px;
   width:130px;
 }
 
 button {
   position:absolute;
-  top:150px;
+  top:130px;
   left:260px;
   width:117px;
 }
