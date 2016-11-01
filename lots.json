@@ -12,7 +12,7 @@
          "availableA":"87",
          "availableB":"46",
          "availableS":"0"
-      }
+      },
       {
          "name":"Pangea Parking Structure",
          "id":"P371",
@@ -24,7 +24,7 @@
          "availableA":"22",
          "availableB":"35",
          "availableS":"45"
-      }
+      },
       {
          "name":"Hopkins Parking Structure",
          "id":"P341",
@@ -36,9 +36,9 @@
          "availableA":"53",
          "availableB":"112",
          "availableS":"32"
-      }
+      },
       {
-         "name":"PC Loop",
+         "name":"Price Center Loop",
          "id":"P508",
          "lat":"32.880298977550424",
          "lng":"-117.2334498167038",
@@ -48,9 +48,9 @@
          "availableA":"3",
          "availableB":"0",
          "availableS":"0"
-      }
+      },
       {
-         "name":"Canyon view aquatic cener",
+         "name":"Canyon View Aquatic Center",
          "id":"P510",
          "lat":"32.881366673558276",
          "lng":"-117.23001658916473",
@@ -60,9 +60,9 @@
          "availableA":"16",
          "availableB":"60",
          "availableS":"0"
-      }   
+      },   
       {
-         "name":"Warren Resident Hall",
+         "name":"Justice Lane",
          "id":"P504",
          "lat":"32.881416228756855",
          "lng":"-117.23222136497498",
@@ -72,21 +72,33 @@
          "availableA":"0",
          "availableB":"0",
          "availableS":"1"
-      }   
+      },   
       {
-         "name":"Jacobs Hall",
+         "name":"Earl Warren College",
          "id":"P502",
          "lat":"32.88360563987437",
          "lng":"-117.23502159118652",
-         "totalA":"153",
-         "totalB":"172",
+         "totalA":"150",
+         "totalB":"185",
          "totalS":"0",
          "availableA":"70",
          "availableB":"20",
          "availableS":"0"
-      }   
+      },   
       {
-         "name":"UCSD Park Lane",
+         "name":"Jacobs Hall",
+         "id":"P503",
+         "lat":"32.88224965",
+         "lng":"-117.23568678",
+         "totalA":"8",
+         "totalB":"0",
+         "totalS":"0",
+         "availableA":"1",
+         "availableB":"0",
+         "availableS":"0"
+      },  
+      {
+         "name":"Voigt Drive",
          "id":"",
          "lat":"32.883146138322005",
          "lng":"-117.23714590072632",
@@ -96,7 +108,7 @@
          "availableA":"0",
          "availableB":"7",
          "availableS":"0"
-      }   
+      },
       {
          "name":"Library Loop",
          "id":"P309",
@@ -108,9 +120,9 @@
          "availableA":"5",
          "availableB":"0",
          "availableS":"0"
-      }       
+      },     
       {
-         "name":"Marshall Apartment",
+         "name":"Marshall Apartments",
          "id":"P308",
          "lat":"32.88262356503368",
          "lng":"-117.24001586437225",
@@ -120,9 +132,9 @@
          "availableA":"13",
          "availableB":"20",
          "availableS":"3"
-      }  
+      },
       {
-         "name":"Rimac Field",
+         "name":"Spanos Training Facility",
          "id":"P359",
          "lat":"32.88968705361924",
          "lng":"-117.24069714546204",
@@ -132,9 +144,9 @@
          "availableA":"0",
          "availableB":"40",
          "availableS":"0"
-      }  
+      },
       {
-         "name":"Rady School",
+         "name":"North Campus",
          "id":"P357",
          "lat":"32.887659962078956",
          "lng":"-117.24111020565033",
@@ -144,7 +156,7 @@
          "availableA":"0",
          "availableB":"32",
          "availableS":"0"
-      }
+      },
       {
          "name":"Marshall Resident Hall 1",
          "id":"P304",
@@ -156,7 +168,7 @@
          "availableA":"29",
          "availableB":"23",
          "availableS":"0"
-      }
+      },
       {
          "name":"Marshall Resident Hall 2",
          "id":"P303",
@@ -168,7 +180,7 @@
          "availableA":"15",
          "availableB":"32",
          "availableS":"0"
-      }
+      },
       {
          "name":"Marshall Resident Hall 3",
          "id":"P302",
@@ -180,7 +192,7 @@
          "availableA":"11",
          "availableB":"29",
          "availableS":"0"
-      }
+      },
       {
          "name":"Muir Upper Lot",
          "id":"P207",
@@ -192,7 +204,7 @@
          "availableA":"110",
          "availableB":"60",
          "availableS":"0"
-      }
+      },
       {
          "name":"Muir Lower Lot",
          "id":"P208",
@@ -204,7 +216,7 @@
          "availableA":"0",
          "availableB":"66",
          "availableS":"40"
-      }
+      },
       {
          "name":"Peterson Loop",
          "id":"P206",
@@ -216,7 +228,7 @@
          "availableA":"30",
          "availableB":"0",
          "availableS":"0"
-      }
+      },
       {
          "name":"Revelle College",
          "id":"P102",
