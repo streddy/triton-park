@@ -54,9 +54,13 @@ function geocodeAddress(address) {
    });
 }
 
-/*function determineLots() {
-   
-}*/
+function loadLots() {
+   $.getJSON("lots.json", function(data) {
+      console.log(data);
+      lots = data.parking_lots;
+      console.log(lots[0].name);
+   });
+}
 
 function createMarker() {
    var contentString = '<div id="content">'+
