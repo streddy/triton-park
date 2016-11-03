@@ -36,8 +36,27 @@ function initMap() {
    map.addListener('bounds_changed', function() {
       searchBox.setBounds(map.getBounds());
    });
+
+   // Create the geocoder
+   geocoder = new google.maps.Geocoder();
+
    markers = []; 
 }
+
+function geocodeAddress(address) {
+   geocoder.geocode({'address':address}, function(results, status) {
+      if(status === 'OK') {
+         loc_lat = results[0].geometry.location.lat();
+         loc_lng = results[0].geometry.location.lng();
+      } else {
+         alert('Geocode was not successful for the following reason: ' + status);
+      }
+   });
+}
+
+/*function determineLots() {
+   
+}*/
 
 function createMarker() {
    var contentString = '<div id="content">'+
