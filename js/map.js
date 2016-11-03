@@ -1,3 +1,4 @@
+/* Initialize the map */
 function initMap() {
    var campus = {lat: 32.8811083, lng: -117.2375732};
 
@@ -30,6 +31,7 @@ function initMap() {
    // Create the search box and link it to the UI element.
    var input = document.getElementById('pac-input');
    var searchBox = new google.maps.places.SearchBox(input);
+   //TODO remove this line to unlink search box from map
    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
    // Bias the SearchBox results towards current map's viewport.
@@ -39,10 +41,12 @@ function initMap() {
 
    // Create the geocoder
    geocoder = new google.maps.Geocoder();
-
+   
+   // Initialize global variables
    markers = []; 
 }
 
+/* Geocode whatever the user input in the search box */
 function geocodeAddress(address) {
    geocoder.geocode({'address':address}, function(results, status) {
       if(status === 'OK') {
@@ -54,54 +58,73 @@ function geocodeAddress(address) {
    });
 }
 
+/* Helper function to load JSON lots file */
 function loadLots(callback) {
    $.getJSON("lots.json", function(data) {
       callback(data);
    });
 }
 
+/* Find all lots of permit type */
 function relevantLots(permit) {
    var total_type = "";
+   var available_type = "";
 
+   // Determine permit type
    if(permit === "A Permit") {
       total_type = "totalA";
+      available_type = "availableA";
    } else if(permit === "B Permit") {
       total_type = "totalB";
+      available_type = "availableB";
    } else if(permit === "S Permit") {
       total_type = "totalS";
+      available_type = "availableS";
    }
    
+   // Clear array containing previous lot results
+   current_search = [];
+   
+   // Define callback for loadLots
    loadLots(function(data) {
       var lots = data.parking_lots;
       
       for(var i = 0; i < lots.length; i++) {
+         // Get metrics for each valid lot
          if(lots[i][total_type] > 0) {
-            getMetrics(lots, i);
+            getMetrics(lots, i, total_type, available_type);
          }
       }
    });
 }
 
-function getMetrics(lot_list, lot) {
+/* Helper function to get metrics of a given lot. Populates current_search[] */
+function getMetrics(lot_list, lot, permit_total, permit_available) {
    var lat = lot_list[lot].lat;
    var lng = lot_list[lot].lng;
+   var name = lot_list[lot].name;
+   var id = lot_list[lot].id;
+   var total = lot_list[lot][permit_total];
+   var available = lot_list[lot][permit_available];
    
-   createMarker(lat, lng);
+   createMarker(lat, lng, name, id, available, total);
 }
 
-function createMarker(lat, lng) {
+/* Create a marker with the given properties */
+function createMarker(lat, lng, name, id, available, total) {
+   var percent_full = (total - available) / total * 100;
    var contentString = '<div id="content">'+
    '<div id="lotInfo">'+
    '</div>'+
-   '<h1 id="firstHeading" class="firstHeading"><center>Hopkins Parking P701D</center></h1>'+ 
-   '<div id="bodyContent"><center>'+
-   '<h3><b>Capacity</b></h3>' +
-   '<img src="images/capacity.png" width="25%">' +
-   '<p><b>20</b> spots left </p>'+ 
-   '<p> Estimate: <b>12</b> spots left in 30 minutes </p>'+
-   '<h3><b>Availability</b></h3>' +
+   '<h1 id="firstHeading" class="firstHeading"><center>' + name + ' ' + id + '</center></h1>'+ 
+   '<div id="bodyContent">'+
+   '<h2><center><b>Capacity</b></center></h2>' +
+   '<div class="meter"><span style="width: ' + percent_full + '%"></span></div>' + 
+   '<h2><center><b>Availability</b></center></h2>' +
+   '<p><center><b>' + available + '</b> spots left</center></p>'+ 
+   '<p><center>Estimate: <b>12</b> spots left in 30 minutes</center></p>'+
    '<img src="images/available_spots.png" width="70%">' +
-   '</center></div>'+
+   '</div>'+
    '</div>';
    
    var coordinates = new google.maps.LatLng(lat, lng);
@@ -122,6 +145,7 @@ function createMarker(lat, lng) {
    markers.push(marker);
 }
 
+/* Delete all markers on the map */
 function deleteMarkers() {
    for(var i = 0; i < markers.length; i++) {
       markers[i].setMap(null);
