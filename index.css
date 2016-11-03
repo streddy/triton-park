@@ -39,8 +39,6 @@
 
 }
 
-
-
 h2{
     text-shadow: 0 0 45px white;
 }
@@ -59,4 +57,12 @@ button {
   margin-left: auto;
   margin-right: auto;
 }
-
+/*Fixed-nav*
+#fixed{
+    position: fixed;
+ 
+ 
+  z-index: 9999;
+  width: 100%;
+  height: 80px;
+}
