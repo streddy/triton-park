@@ -54,12 +54,36 @@ function geocodeAddress(address) {
    });
 }
 
-function loadLots() {
+function loadLots(callback) {
    $.getJSON("lots.json", function(data) {
-      console.log(data);
-      lots = data.parking_lots;
-      console.log(lots[0].name);
+      callback(data);
    });
+}
+
+function relevantLots(permit) {
+   var total_type = "";
+
+   if(permit === "A Permit") {
+      total_type = "totalA";
+   } else if(permit === "B Permit") {
+      total_type = "totalB";
+   } else if(permit === "S Permit") {
+      total_type = "totalS";
+   }
+   
+   loadLots(function(data) {
+      var lots = data.parking_lots;
+      
+      for(var i = 0; i < lots.length; i++) {
+         if(lots[i][total_type] > 0) {
+            getMetrics(lots, i);
+         }
+      }
+   });
+}
+
+function getMetrics(lot_list, lot) {
+   console.log(lot_list[lot].name);
 }
 
 function createMarker() {
