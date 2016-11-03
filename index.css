@@ -53,5 +53,9 @@ button {
   float:left;
 }
 
+#title{
+    position: fixed;
+    top: 0;
+}
 
 
