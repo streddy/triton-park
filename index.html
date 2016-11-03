@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
    <head>
        
       <meta charset="utf-8">
@@ -24,20 +25,19 @@
    <body style ="margin:0px; height:0px; background-color:#08304b">
        <!--User inputs for destination-->    
   
-       <br>
-
+  
+   <div class="container-fluid">
+    <div class="row1">
        <h2><center>Triton Park</center></h2>
-       <div class = "element" id="map"></div>
        <input id="pac-input" class="controls" type="text" placeholder="Enter Your Destination">
-       <!--//Below is the Script for Map-->
-    
-      <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVFEMeSuV8YL9OcBMx7wmFx71BkscZEbo&libraries=places&callback=initMap">
-      </script>
 
-      <!--^^^^^^^^^^^^^^^Scripts for map^^^^^^^^^^^^^^^^^^-->
-      
-   
+       <br>
+       
+        </div>
+    </div>
+
+    <div class="row2">
+      <div class="center-block">
       <!--Selection for permit type-->
         <select id="permit-select">
          <option disabled selected value>Your Permit Type</option>
@@ -46,7 +46,24 @@
          <option value = "S Permit"> Permit-S</option>
         </select>
 
+        <!-- Find parking button-->
         <button id="find-park" type="button">Find Parking</button>
+    </div>
+   </div>
+
+      <br>
+
+       <!--//Below is the Script for Map-->
+       <div class = "element" id="map"></div>
+    
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVFEMeSuV8YL9OcBMx7wmFx71BkscZEbo&libraries=places&callback=initMap">
+      </script>
+
+      <!--^^^^^^^^^^^^^^^Scripts for map^^^^^^^^^^^^^^^^^^-->
+      
+   
+      
 
     </body>
 </html>

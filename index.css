@@ -1,6 +1,7 @@
 /*Style for searchbox*/
 .controls {
-  margin-top: 10px;
+  position:relative;
+  left:41%;
   border: 1px solid transparent;
   border-radius: 2px 0 0 2px;
   box-sizing: border-box;
@@ -46,16 +47,16 @@ h2{
 
 /*absolute selector*/
 select, options{ 
-  z-index:10;
-  position:absolute;
-  top:130px;
-  left:125px;
-  width:130px;
+
 }
 
 button {
-  position:absolute;
-  top:130px;
-  left:260px;
-  width:117px;
+  
 }
+
+.center-block {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
