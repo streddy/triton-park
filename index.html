@@ -7,7 +7,8 @@
        <!--mobile fit-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
        
-      <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
        
        
@@ -29,32 +30,40 @@
    <div class="container-fluid">
     <div class="row1">
        <h2><center>Triton Park</center></h2>
-       <input id="pac-input" class="controls" type="text" placeholder="Enter Your Destination">
-
-       <br>
-       
-        </div>
     </div>
 
     <div class="row2">
-      <div class="center-block">
+       <input id="pac-input" class="controls" type="text" placeholder="Enter Your Destination">      
+    </div>
+    
+    <br>
+
+    <div class="row3">
       <!--Selection for permit type-->
+      <div class="col-xs-6">
         <select id="permit-select">
          <option disabled selected value>Your Permit Type</option>
          <option value = "A Permit"> Permit-A</option>
          <option value = "B Permit"> Permit-B</option>
          <option value = "S Permit"> Permit-S</option>
         </select>
+      </div>
 
         <!-- Find parking button-->
+      <div class="col-xs-6">
         <button id="find-park" type="button">Find Parking</button>
-    </div>
-   </div>
+      </div>
+      </div>
+   
 
+      <br>
       <br>
 
        <!--//Below is the Script for Map-->
+    <div class="row4">
        <div class = "element" id="map"></div>
+    </div>
+   </div>
     
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVFEMeSuV8YL9OcBMx7wmFx71BkscZEbo&libraries=places&callback=initMap">

@@ -1,7 +1,5 @@
 /*Style for searchbox*/
 .controls {
-  position:relative;
-  left:41%;
   border: 1px solid transparent;
   border-radius: 2px 0 0 2px;
   box-sizing: border-box;
@@ -16,10 +14,11 @@
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
-  margin-left:12px;
+  margin-left:30%;
+  margin-right:30%;
+  width: 40%;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
-  width: 250px;
 }
 
 #pac-input:focus {
@@ -47,16 +46,12 @@ h2{
 
 /*absolute selector*/
 select, options{ 
-
+  float:right; 
 }
 
 button {
-  
+  float:left;
 }
 
-.center-block {
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 
