@@ -1,5 +1,5 @@
 function initMap() {
-   campus = {lat: 32.8811083, lng: -117.2375732};
+   var campus = {lat: 32.8811083, lng: -117.2375732};
 
    // Map options
    var mapOptions = {
@@ -83,10 +83,13 @@ function relevantLots(permit) {
 }
 
 function getMetrics(lot_list, lot) {
-   console.log(lot_list[lot].name);
+   var lat = lot_list[lot].lat;
+   var lng = lot_list[lot].lng;
+   
+   createMarker(lat, lng);
 }
 
-function createMarker() {
+function createMarker(lat, lng) {
    var contentString = '<div id="content">'+
    '<div id="lotInfo">'+
    '</div>'+
@@ -100,13 +103,15 @@ function createMarker() {
    '<img src="images/available_spots.png" width="70%">' +
    '</center></div>'+
    '</div>';
-            
+   
+   var coordinates = new google.maps.LatLng(lat, lng);
+
    var infowindow = new google.maps.InfoWindow({
       content: contentString
    });
             
    var marker = new google.maps.Marker({
-      position: campus,
+      position: coordinates,
       map: map,
       animation: google.maps.Animation.DROP 
    });
