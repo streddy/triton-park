@@ -1,3 +1,5 @@
+google.load('visualization', '1.0', {'packages':['corechart']});
+
 /* Initialize the map */
 function initMap() {
    var campus = {lat: 32.8811083, lng: -117.2375732};
@@ -99,7 +101,7 @@ function getMetrics(lot_list, lot, permit_total, permit_available) {
    var predict_available = checkFuture(population_trend);
    var icon = getIcon(dist, predict_available);
 
-   createMarker(lat, lng, name, id, available, total, predict_available, icon);
+   createMarker(lat, lng, name, id, available, total, predict_available, population_trend, icon);
 }
 
 /* Helper function to get distance between parking lot and destination */
@@ -167,18 +169,19 @@ function getIcon(dist, predict_available) {
 }
 
 /* Create a marker with the given properties */
-function createMarker(lat, lng, name, id, available, total, predict_available, icon) {
+function createMarker(lat, lng, name, id, available, total, predict_available, population_trend, icon) {
    var percent_full = (total - available) / total * 100;
+   
+   var graph = generateGraph(population_trend);
+
    var contentString = '<div id="content">'+
    '<h3 id="firstHeading"><center>' + name + ' ' + id + '</center></h3>'+ 
    '<h4 id="secondHeading"><center><b>Capacity</b></center></h4>' +
    '<div class="meter"><span style="width: ' + percent_full + '%"></span></div>' + 
    '<h4 id="secondHeading"><center><b>Availability</b></center></h4>' +
    '<p><center><b>' + available + '</b> spots left</center></p>'+ 
-   '<p><center>Estimate: <b>' + predict_available + '</b> spots left in 30 minutes</center></p>'+
-   '<img src="images/available_spots.png" width="70%">' +
+   '<p><center>Estimate: <b>' + predict_available + '</b> spots left in 30 minutes</center></p>'+ graph +
    '</div>';
-   
    var coordinates = new google.maps.LatLng(lat, lng);
 
    var infowindow = new google.maps.InfoWindow({
@@ -196,6 +199,86 @@ function createMarker(lat, lng, name, id, available, total, predict_available, i
    });
 
    markers.push(marker);
+}
+
+/* Function to generate graph html */
+function generateGraph(population_trend) {
+   var data = new google.visualization.DataTable();
+   data.addColumn('string', 'Time');
+   data.addColumn('number', 'Spots');
+   data.addRows([
+         ['12 AM', population_trend[0]],
+         ['', population_trend[1]],
+         ['', population_trend[2]],
+         ['', population_trend[3]],
+         ['', population_trend[4]],
+         ['', population_trend[5]],
+         ['', population_trend[6]],
+         ['', population_trend[7]],
+         ['', population_trend[8]],
+         ['', population_trend[9]],
+         ['', population_trend[10]],
+         ['', population_trend[11]],
+         ['6 AM', population_trend[12]],
+         ['', population_trend[13]],
+         ['', population_trend[14]],
+         ['', population_trend[15]],
+         ['', population_trend[16]],
+         ['', population_trend[17]],
+         ['', population_trend[18]],
+         ['', population_trend[19]],
+         ['', population_trend[20]],
+         ['', population_trend[21]],
+         ['', population_trend[22]],
+         ['', population_trend[23]],
+         ['12 PM', population_trend[24]],
+         ['', population_trend[25]],
+         ['', population_trend[26]],
+         ['', population_trend[27]],
+         ['', population_trend[28]],
+         ['', population_trend[29]],
+         ['', population_trend[30]],
+         ['', population_trend[31]],
+         ['', population_trend[32]],
+         ['', population_trend[33]],
+         ['', population_trend[34]],
+         ['', population_trend[35]],
+         ['6 PM', population_trend[36]],
+         ['', population_trend[37]],
+         ['', population_trend[38]],
+         ['', population_trend[39]],
+         ['', population_trend[40]],
+         ['', population_trend[41]],
+         ['', population_trend[42]],
+         ['', population_trend[43]],
+         ['', population_trend[44]],
+         ['', population_trend[45]],
+         ['', population_trend[46]],
+         ['', population_trend[47]],
+         ]);
+
+   // Set chart options
+   var options = {
+      'title':'Trend of Open Parking Spots',
+      'width':400,
+      'height':175,
+      'colors':['#26A1D6']
+   };
+
+   var node = document.createElement('div'),
+       chart = new google.visualization.LineChart(node);
+
+   chart.draw(data, options);
+   return nodeToString(node)
+}
+
+/* Helper function to extract string from HTMLElement */
+function nodeToString (node) {
+   var tmpNode = document.createElement( "div" );
+   tmpNode.appendChild( node.cloneNode( true ) );
+   var str = tmpNode.innerHTML;
+   tmpNode = node = null; // prevent memory leaks in IE
+   return str;
 }
 
 /* Delete all markers on the map */
