@@ -126,17 +126,13 @@ function toRadians(coord) {
 function createMarker(lat, lng, name, id, available, total) {
    var percent_full = (total - available) / total * 100;
    var contentString = '<div id="content">'+
-   '<div id="lotInfo">'+
-   '</div>'+
-   '<h1 id="firstHeading" class="firstHeading"><center>' + name + ' ' + id + '</center></h1>'+ 
-   '<div id="bodyContent">'+
-   '<h2><center><b>Capacity</b></center></h2>' +
+   '<h3 id="firstHeading"><center>' + name + ' ' + id + '</center></h3>'+ 
+   '<h4 id="secondHeading"><center><b>Capacity</b></center></h4>' +
    '<div class="meter"><span style="width: ' + percent_full + '%"></span></div>' + 
-   '<h2><center><b>Availability</b></center></h2>' +
+   '<h4 id="secondHeading"><center><b>Availability</b></center></h4>' +
    '<p><center><b>' + available + '</b> spots left</center></p>'+ 
    '<p><center>Estimate: <b>12</b> spots left in 30 minutes</center></p>'+
    '<img src="images/available_spots.png" width="70%">' +
-   '</div>'+
    '</div>';
    
    var coordinates = new google.maps.LatLng(lat, lng);

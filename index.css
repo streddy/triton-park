@@ -10,9 +10,9 @@
 }
 
 .meter { 
-   height: 10px;  /* Can be anything */
+   height: 15px;  /* Can be anything */
    position: relative;
-   background: #08304b;
+   background: #26A1D6;
    -moz-border-radius: 12px;
    -webkit-border-radius: 12px;
    border-radius: 12px;
@@ -59,7 +59,27 @@
     margin: auto;
     width: 10%;
 }
-         
+
+#firstHeading h3 {
+   display: block;
+   font-size: 2em;
+   margin-top: 0.67em;
+   margin-bottom: 0.67em;
+   margin-left: 0;
+   margin-right: 0;
+   font-weight: bold;
+}
+
+#secondHeading h4 {
+   display: block;
+   font-size: 1.5em;
+   margin-top: 0.83em;
+   margin-bottom: 0.83em;
+   margin-left: 0;
+   margin-right: 0;
+   font-weight: bold;
+}
+
 #map {
     margin-right: 0px;
     margin-left: 0px;
