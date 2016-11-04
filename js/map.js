@@ -104,10 +104,37 @@ function getMetrics(lot_list, lot, permit_total, permit_available) {
    var lng = lot_list[lot].lng;
    var name = lot_list[lot].name;
    var id = lot_list[lot].id;
-   var total = lot_list[lot][permit_total];
    var available = lot_list[lot][permit_available];
+   var total = lot_list[lot][permit_total];
+   var dist = getDistance(lat, lng);
    
+   // Create lot population over time
+   var population_trend = [];
+   for(var i = 0; i < 48; i++) {
+      population_trend[i] = Math.floor(Math.random() * total);
+   }
+
    createMarker(lat, lng, name, id, available, total);
+}
+
+/* Helper function to get distance between parking lot and destination */
+function getDistance(lat, lng) {
+   var earth_rad = 6371008;
+   
+   var lat_diff = toRadians(loc_lat - lat);
+   var lng_diff = toRadians(loc_lng - lng);
+
+   var a = Math.sin(lat_diff / 2) * Math.sin(lat_diff / 2) +
+           Math.cos(toRadians(lat)) * Math.cos(toRadians(loc_lat)) *
+           Math.sin(lng_diff / 2) * Math.sin(lng_diff / 2);
+   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+   return earth_rad * c;
+}
+
+/* Helper function to convert coordinates to radians */
+function toRadians(coord) {
+   return coord * Math.PI / 180;
 }
 
 /* Create a marker with the given properties */

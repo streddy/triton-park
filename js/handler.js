@@ -16,8 +16,10 @@ function initializePage() {
       } else if(loc == "") {
          alert("Please select your destination on campus");
       } else {
+         //TODO reorganize
          deleteMarkers();
-         createMarker();
+         geocodeAddress(loc);
+         relevantLots(type);
       }
    });
 }
