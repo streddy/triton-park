@@ -67,9 +67,6 @@ function relevantLots(permit) {
       available_type = "availableS";
    }
    
-   // Clear array containing previous lot results
-   current_search = [];
-   
    // Define callback for loadLots
    loadLots(function(data) {
       var lots = data.parking_lots;
@@ -99,7 +96,10 @@ function getMetrics(lot_list, lot, permit_total, permit_available) {
       population_trend[i] = Math.floor(Math.random() * total);
    }
 
-   createMarker(lat, lng, name, id, available, total);
+   var predict_available = checkFuture(population_trend);
+   var icon = getIcon(dist, predict_available);
+
+   createMarker(lat, lng, name, id, available, total, predict_available, icon);
 }
 
 /* Helper function to get distance between parking lot and destination */
@@ -122,8 +122,52 @@ function toRadians(coord) {
    return coord * Math.PI / 180;
 }
 
+/* Helper function to get prediction of population within the next 30 minutes */
+function checkFuture(population_trend) {
+   // Get current time
+   var currTime = new Date();
+   var predict_available = 0;
+
+   // Scale hours to include half hours
+   var trend_index = currTime.getHours() * 2;
+
+   // Treating special time cases
+   if(currTime.getMinutes() >= 45) {
+      trend_index += 2;
+   } else if(currTime.getMinutes() >= 15) {
+      trend_index++;
+   }
+
+   // Avoid index out of bounds
+   trend_index--;
+
+   // Set prediction
+   if(trend_index == 47) {
+      predict_available = population_trend[1];
+   } else {
+      predict_available = population_trend[trend_index + 1]
+   }
+
+   return predict_available;
+}
+
+/* Function to get the icon for a lot depending on its properties */
+function getIcon(dist, predict_available) {
+   var icon = "";
+
+   if(dist < 300 && predict_available >= 10) {
+      icon = "images/blue-icon.png";
+   } else if((dist < 300 && predict_available < 10 && predict_available >= 3 ) || (dist > 300 && dist < 800 && predict_available >= 10)) {
+      icon = "images/yellow-icon.png";
+   } else {
+      icon = "images/red-icon.png";
+   }
+
+   return icon;
+}
+
 /* Create a marker with the given properties */
-function createMarker(lat, lng, name, id, available, total) {
+function createMarker(lat, lng, name, id, available, total, predict_available, icon) {
    var percent_full = (total - available) / total * 100;
    var contentString = '<div id="content">'+
    '<h3 id="firstHeading"><center>' + name + ' ' + id + '</center></h3>'+ 
@@ -131,7 +175,7 @@ function createMarker(lat, lng, name, id, available, total) {
    '<div class="meter"><span style="width: ' + percent_full + '%"></span></div>' + 
    '<h4 id="secondHeading"><center><b>Availability</b></center></h4>' +
    '<p><center><b>' + available + '</b> spots left</center></p>'+ 
-   '<p><center>Estimate: <b>12</b> spots left in 30 minutes</center></p>'+
+   '<p><center>Estimate: <b>' + predict_available + '</b> spots left in 30 minutes</center></p>'+
    '<img src="images/available_spots.png" width="70%">' +
    '</div>';
    
@@ -144,6 +188,7 @@ function createMarker(lat, lng, name, id, available, total) {
    var marker = new google.maps.Marker({
       position: coordinates,
       map: map,
+      icon: icon,
       animation: google.maps.Animation.DROP 
    });
    marker.addListener('click', function() {
