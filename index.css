@@ -96,7 +96,7 @@
     text-shadow: 0 0 45px white;
 }
 /*absolute selector*/
-select, options{ 
+select, option{ 
   font-family: Roboto;
   float:right; 
   color : orange;
