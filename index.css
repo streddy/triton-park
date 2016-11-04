@@ -102,10 +102,6 @@ select {
   color : orange;
 }
 
-option {
-   font-family: Roboto;
-}
-
 button {
   font-family: Roboto;
   float:left;
