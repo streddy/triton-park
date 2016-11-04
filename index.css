@@ -1,6 +1,5 @@
 /*Style for searchbox*/
 .controls {
-  margin-top: 10px;
   border: 1px solid transparent;
   border-radius: 2px 0 0 2px;
   box-sizing: border-box;
@@ -43,10 +42,11 @@
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
-  margin-left:12px;
+  margin-left:25%;
+  margin-right:25%;
+  width: 50%;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
-  width: 250px;
 }
 
 #pac-input:focus {
@@ -60,31 +60,36 @@
     width: 10%;
 }
          
-#map{
-    height: 600px;
-    width: 100%;
-
+#map {
+    margin-right: 0px;
+    margin-left: 0px;
 }
 
-
-
 #title{
-    color: orange;
+    font-family: Roboto;
+    color : white;
     text-shadow: 0 0 45px white;
 }
 
+#login{
+    font-family: Roboto;
+    text-shadow: 0 0 45px white;
+}
 /*absolute selector*/
 select, options{ 
-  z-index:10;
-  position:absolute;
-  top:130px;
-  left:125px;
-  width:130px;
+  font-family: Roboto;
+  float:right; 
+  color : orange;
 }
 
 button {
-  position:absolute;
-  top:130px;
-  left:260px;
-  width:117px;
+  font-family: Roboto;
+  float:left;
 }
+
+
+/*.center-block {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}*/

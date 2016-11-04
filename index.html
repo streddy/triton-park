@@ -1,29 +1,69 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
    <head>
+       
       <meta charset="utf-8">
        
        <!--mobile fit-->
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       
-        <font face="Roboto" color="#08304b"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <font face="Roboto;"/>
       <title>Triton Park</title>
+      
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" media="screen" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
       <link href="index.css" rel="stylesheet">
       <script src="js/map.js"></script>
       <script src="https://code.jquery.com/jquery.js"></script>
       <script src="js/handler.js"></script>
+     
+     <!--Bootstrap selection-->
+     <!-- Latest compiled and minified CSS -->
+
+  
+    <!--Above are selection styles-->
+
    </head>
 
-  <!-- alt bg color: #3A4148
-  #08304b-->
-   <body style ="margin:0px; height:0px; background-color:#08304b">
+   <body style ="margin:0px; height:0px; background-color:#26A1D6">
        <!--User inputs for destination-->    
   
-       <br>
+  
+   <div class="container-fluid" id = "fixed">
+    <div class="row1">
+       <h2 id = "title"><center>Triton Park</center></h2>
+    </div>
 
-       <h2 id="title"><center>Triton Park</center></h2>
-       <div class = "element" id="map"></div>
-       <input id="pac-input" class="controls" type="text" placeholder="Enter Your Destination">
+
+    <div class="row2 form-group">
+       <input id="pac-input" class="controls" type="text" placeholder="Enter Your Destination">      
+    </div>
+
+    <div class="row3">
+      <!--Selection for permit type-->
+      <div class="col-xs-6" align="right">
+        <select class = "selectpicker" data-style="btn-warning" data-width="fit" id="permit-select">
+         <option disabled selected value id = "dropdown">Your Permit Type</option>
+         <option value = "A Permit"> Permit-A</option>
+         <option value = "B Permit"> Permit-B</option>
+         <option value = "S Permit"> Permit-S</option>
+        </select>
+      </div>
+
+        <!-- Find parking button-->
+      <div class="col-xs-6">
+        <button id="find-park" type="button" class = "btn btn-warning">Find Parking</button>
+      </div>
+      </div>
+   
+
+      <br>
+      <br>
+
        <!--//Below is the Script for Map-->
+    <div class="row4">
+       <div class = "element" id="map" style="width:100%;height:530px"></div>
+    </div>
+   </div>
     
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVFEMeSuV8YL9OcBMx7wmFx71BkscZEbo&libraries=places&callback=initMap">
@@ -31,16 +71,14 @@
 
       <!--^^^^^^^^^^^^^^^Scripts for map^^^^^^^^^^^^^^^^^^-->
       
-   
-      <!--Selection for permit type-->
-        <select id="permit-select">
-         <option disabled selected value>Your Permit Type</option>
-         <option value = "A Permit"> Permit-A</option>
-         <option value = "B Permit"> Permit-B</option>
-         <option value = "S Permit"> Permit-S</option>
-        </select>
-
-        <button id="find-park" type="button">Find Parking</button>
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
+          <script type="text/javascript">
+               $(document).ready(function() {
+               $('.selectpicker').selectpicker();
+              });
+          </script>
 
     </body>
 </html>
