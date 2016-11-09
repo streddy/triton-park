@@ -12,6 +12,9 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" media="screen" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
       <link href="index.css" rel="stylesheet">
+      <link type="text/css" rel="stylesheet" href="PWTAssets/css/jquery.pagewalkthrough.css" />
+      <script type="text/javascript" src="jquery.min.js"></script> 
+      
       <script src="https://code.jquery.com/jquery.js"></script>
       <script type="text/javascript" src="https://www.google.com/jsapi"></script>
       <script src="js/handler.js"></script>
@@ -46,11 +49,35 @@
         <button id="find-park" type="button" class = "btn btn-warning">Find Parking</button>
       </div>
       </div>
-   
-
+      
       <br>
       <br>
 
+      <div id="walkthrough-content"> 
+        <div id="walkthrough-1"> 
+            <h3>Welcome to <strong>Triton Park! </strong> Here you'll find an easy way to find parkings on campus!</h3> 
+ 
+        <p>Seems like this is your first time using this app</p> 
+            <p>Click <strong>NEXT </strong> for more information...</p> 
+        </div> 
+ 
+        <div id="walkthrough-2"> 
+            Here's the place to enter your desination. Once you enter the destination, we'll show you the nearest parking around you! Let's try <strong>Geisel Library</strong> first.
+        </div> 
+ 
+        <div id="walkthrough-3"> 
+            Here's the place to select your <strong>permit type</strong> !
+        </div> 
+ 
+        <div id="walkthrough-4"> 
+        Click here to find all the parkings around your destination! 
+        </div> 
+ 
+        <div id="walkthrough-5"> 
+            Click the markers to see more information about this parking! The <strong>blue</strong> marker means there are <strong>planty spots</strong> available! The <strong>yellow</strong> marker means there's <strong>some spots </strong>available! If there's a <strong>red</strong> marker, then it means this parking lot is almost full.
+        </div> 
+    </div> 
+      
        <!--//Below is the Script for Map-->
     <div class="row4">
        <div class = "element" id="map" style="width:100%;height:530px"></div>
@@ -71,6 +98,10 @@
                $('.selectpicker').selectpicker();
               });
           </script>
+          
+          <script type="text/javascript" src="PWTAssets/jquery.pagewalkthrough.js"></script>
+          
+          
 
     </body>
 </html>
