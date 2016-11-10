@@ -53,7 +53,13 @@
   border-color: #4d90fe;
 }
 /*-----------------------------------------*/
-
+h1, h2 {
+	margin-top: 10px;
+	font-size: 30px;
+    font-weight: 100;
+    color: #555;
+    line-height: 50px;
+}
 .element{
     font-family: Roboto;
     margin: auto;

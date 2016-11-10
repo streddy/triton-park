@@ -98,10 +98,12 @@
   z-index: 1000;
 }
 #jpWalkthrough #jpwTooltip #tooltipInner {
-  font-family: 'xjlFont','Microsoft yahei';
+  font-family: "Roboto";
+  font-weight: 100;
   color: #ffffff;
   text-align: center;
-  font-size: 22px; line-height:26px;
+  font-size: 22px; 
+  line-height:26px;
 }
 #jpWalkthrough #jpwTooltip #tooltipInner a {
   font-size: 22px;
@@ -123,7 +125,7 @@
   display: block;
 }
 #jpwClose:hover {
-  color: #7eff00;
+  color: orange;
 }
 #jpwClose:before {
   content: '';
