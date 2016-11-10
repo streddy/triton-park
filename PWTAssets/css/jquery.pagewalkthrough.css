@@ -1,3 +1,8 @@
+#walkthrough-content{
+  display:none;
+  font-family:"roboto";
+}
+
 #jpwClose,
 #jpwNext,
 #jpwPrevious,

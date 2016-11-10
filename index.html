@@ -30,7 +30,7 @@
     </div>
 
 
-    <div class="row2 form-group">
+    <div class="row2 form-group" id = "userInput">
        <input id="pac-input" class="controls" type="text" placeholder="Enter Your Destination">      
     </div>
 
@@ -53,15 +53,13 @@
       <br>
       <br>
 
-      <div id="walkthrough-content" style="font-family: Roboto"; > 
-          <style>
-          #walkthrough-content{display:none}
-          </style>
+      <div id="walkthrough-content"> 
         <div id="walkthrough-1"> 
-            <h3 align = "left">Welcome to <strong>Triton Park! </strong> Here you'll find an easy way to find parkings on campus!</h3> 
+            <h3 align = "center">Welcome to <strong>Triton Park!</strong></h3> 
+            <p align = "left">Here you'll find an easy way to find parkings on campus!</p> 
  
-        <p align = "left" >Seems like this is your first time using this app</p> 
-            <p align = "left">Click <strong>NEXT </strong> for more information...</p> 
+        <p align = "left">Seems like this is your first time using this app. 
+        Click <strong>NEXT </strong> for more information...</p> 
         </div> 
  
         <div id="walkthrough-2"> 
@@ -110,9 +108,9 @@ $(function() {
     name: 'introduction',
     steps: [
     { popup: {content: '#walkthrough-1',type: 'modal' }
-    }, {wrapper: '#logo',popup: {content: '#walkthrough-2',type: 'tooltip',position: 'bottom'}
-    }, {wrapper: 'h2.top_title a',popup: {content: '#walkthrough-3',type: 'tooltip',position: 'bottom'}
-    }, {wrapper: 'a[href="http://files.cnblogs.com/files/hnyei/jq_zhezhaoyd.rar"]', popup: {content: '#walkthrough-4',type: 'tooltip',position: 'right'}
+    }, {wrapper: '#userInput',popup: {content: '#walkthrough-2',type: 'tooltip',position: 'bottom'}
+    }, {wrapper: '#permit-select',popup: {content: '#walkthrough-3',type: 'tooltip',position: 'bottom'}
+    }, {wrapper: '#find-park', popup: {content: '#walkthrough-4',type: 'tooltip',position: 'bottom'}
     }, {wrapper: '#footer p',popup: {content: '#walkthrough-5',type: 'tooltip',position: 'top'}
     }]
   });
