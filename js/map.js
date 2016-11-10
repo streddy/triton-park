@@ -2,7 +2,7 @@ google.load('visualization', '1.0', {'packages':['corechart']});
 
 /* Initialize the map */
 function initMap() {
-   var campus = {lat: 32.8811083, lng: -117.2375732};
+   campus = {lat: 32.8811083, lng: -117.2375732};
 
    // Map options
    var mapOptions = {
@@ -56,6 +56,7 @@ function loadLots(callback) {
 function relevantLots(permit) {
    var total_type = "";
    var available_type = "";
+   prev_info = false;
 
    // Determine permit type
    if(permit === "A Permit") {
@@ -80,6 +81,8 @@ function relevantLots(permit) {
          }
       }
    });
+   
+   map.panTo(campus);
 }
 
 /* Helper function to get metrics of a given lot. Populates current_search[] */
@@ -99,7 +102,7 @@ function getMetrics(lot_list, lot, permit_total, permit_available) {
    }
 
    var predict_available = checkFuture(population_trend);
-   var icon = getIcon(dist, predict_available);
+   var icon = getIcon(dist, predict_available[1]);
 
    createMarker(lat, lng, name, id, available, total, predict_available, population_trend, icon);
 }
@@ -128,7 +131,8 @@ function toRadians(coord) {
 function checkFuture(population_trend) {
    // Get current time
    var currTime = new Date();
-   var predict_available = 0;
+   var predict_index = 0;
+   var predict_available = [];
 
    // Scale hours to include half hours
    var trend_index = currTime.getHours() * 2;
@@ -145,9 +149,11 @@ function checkFuture(population_trend) {
 
    // Set prediction
    if(trend_index == 47) {
-      predict_available = population_trend[1];
+      predict_available[0] = 1;
+      predict_available[1] = population_trend[1];
    } else {
-      predict_available = population_trend[trend_index + 1]
+      predict_available[0] = trend_index + 1;
+      predict_available[1] = population_trend[trend_index + 1]
    }
 
    return predict_available;
@@ -172,7 +178,7 @@ function getIcon(dist, predict_available) {
 function createMarker(lat, lng, name, id, available, total, predict_available, population_trend, icon) {
    var percent_full = (total - available) / total * 100;
    
-   var graph = generateGraph(population_trend);
+   var graph = generateGraph(population_trend, predict_available[0]);
 
    var contentString = '<div id="content">'+
    '<h3 id="firstHeading"><center>' + name + ' ' + id + '</center></h3>'+ 
@@ -180,10 +186,11 @@ function createMarker(lat, lng, name, id, available, total, predict_available, p
    '<div class="meter"><span style="width: ' + percent_full + '%"></span></div>' + 
    '<h4 id="secondHeading"><center><b>Availability</b></center></h4>' +
    '<p><center><b>' + available + '</b> spots left</center></p>'+ 
-   '<p><center>Estimate: <b>' + predict_available + '</b> spots left in 30 minutes</center></p>'+ graph +
+   '<p><center>Estimate: <b>' + predict_available[1] + '</b> spots left in 30 minutes</center></p>'+ graph +
+   '<div align="center"><button id="more-info"><b>View An Interactive Plot!</b></button></div>' + 
    '</div>';
    var coordinates = new google.maps.LatLng(lat, lng);
-
+   
    var infowindow = new google.maps.InfoWindow({
       content: contentString
    });
@@ -194,15 +201,27 @@ function createMarker(lat, lng, name, id, available, total, predict_available, p
       icon: icon,
       animation: google.maps.Animation.DROP 
    });
+
    marker.addListener('click', function() {
+      // Close previous info window
+      if(prev_info) {
+         prev_info.close();
+      }
+
+      prev_info = infowindow;
       infowindow.open(map, marker);
+      
+      $('#more-info').click(function() {
+         alert("HELLO");
+      });
+      //map.panTo(marker.getPosition());
    });
 
    markers.push(marker);
 }
 
 /* Function to generate graph html */
-function generateGraph(population_trend) {
+function generateGraph(population_trend, predict_available) {
    var data = new google.visualization.DataTable();
    data.addColumn('string', 'Time');
    data.addColumn('number', 'Spots');
@@ -262,7 +281,7 @@ function generateGraph(population_trend) {
       'title':'Trend of Open Parking Spots',
       'width':400,
       'height':175,
-      'colors':['#26A1D6']
+      'colors':['#26A1D6'],
    };
 
    var node = document.createElement('div'),

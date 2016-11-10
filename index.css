@@ -95,18 +95,27 @@
     font-family: Roboto;
     text-shadow: 0 0 45px white;
 }
+
+#more-info{
+   font-size: 12px;
+   text-align: center;
+   padding: 8px 15px;
+   border: none;
+   background-color: orange;
+   color: white;
+   border-radius: 4px;
+   margin: 0 auto;
+}
+
 /*absolute selector*/
 select { 
   font-family: Roboto;
-  float:right; 
   color : orange;
 }
 
 button {
   font-family: Roboto;
-  float:left;
 }
-
 
 /*.center-block {
   display:block;
