@@ -37,6 +37,47 @@
    overflow: hidden;
 }
 
+.element{
+    font-family: Roboto;
+    margin: auto;
+    width: 10%;
+}
+
+.overlay {
+   height: 100%;
+   width: 0;
+   position: fixed;
+   z-index: 1;
+   left: 0;
+   top: 0;
+   background-color: orange;
+   opacity: 0.95;
+   overflow: hidden;
+   transition: 0.5s;
+}
+
+.overlay a {
+   padding: 8px;
+   text-decoration: none;
+   color: white;
+   display: block;
+   transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+   color: #26A1D6;
+}
+
+.overlay .closebtn {
+   font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+   .overlay .closebtn {
+      font-size: 45px;
+   }
+}
+
 #pac-input {
   background-color: #fff;
   font-family: Roboto;
@@ -51,13 +92,6 @@
 
 #pac-input:focus {
   border-color: #4d90fe;
-}
-/*-----------------------------------------*/
-
-.element{
-    font-family: Roboto;
-    margin: auto;
-    width: 10%;
 }
 
 #firstHeading h3 {
@@ -91,6 +125,11 @@
     text-shadow: 0 0 45px white;
 }
 
+#trend-title{
+    font-family: Roboto;
+    color : white;
+}
+
 #login{
     font-family: Roboto;
     text-shadow: 0 0 45px white;
@@ -116,9 +155,3 @@ select {
 button {
   font-family: Roboto;
 }
-
-/*.center-block {
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-}*/

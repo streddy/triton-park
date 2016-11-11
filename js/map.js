@@ -83,6 +83,7 @@ function relevantLots(permit) {
    });
    
    map.panTo(campus);
+   map.setZoom(15);
 }
 
 /* Helper function to get metrics of a given lot. Populates current_search[] */
@@ -178,7 +179,8 @@ function getIcon(dist, predict_available) {
 function createMarker(lat, lng, name, id, available, total, predict_available, population_trend, icon) {
    var percent_full = (total - available) / total * 100;
    
-   var graph = generateGraph(population_trend, predict_available[0]);
+   var graph_data = getData(population_trend);
+   var graph = infowindowGraph(graph_data);
 
    var contentString = '<div id="content">'+
    '<h3 id="firstHeading"><center>' + name + ' ' + id + '</center></h3>'+ 
@@ -212,76 +214,85 @@ function createMarker(lat, lng, name, id, available, total, predict_available, p
       infowindow.open(map, marker);
       
       $('#more-info').click(function() {
-         alert("HELLO");
+         interactiveGraph(graph_data, predict_available[0], name, id);
+         openGraph();
       });
-      //map.panTo(marker.getPosition());
    });
 
    markers.push(marker);
 }
 
-/* Function to generate graph html */
-function generateGraph(population_trend, predict_available) {
+/* Function to generate data chart for graph */
+function getData(population_trend) {
    var data = new google.visualization.DataTable();
-   data.addColumn('string', 'Time');
+   data.addColumn('string', 'Axis');
    data.addColumn('number', 'Spots');
    data.addRows([
-         ['12 AM', population_trend[0]],
-         ['', population_trend[1]],
-         ['', population_trend[2]],
-         ['', population_trend[3]],
-         ['', population_trend[4]],
-         ['', population_trend[5]],
-         ['', population_trend[6]],
-         ['', population_trend[7]],
-         ['', population_trend[8]],
-         ['', population_trend[9]],
-         ['', population_trend[10]],
-         ['', population_trend[11]],
-         ['6 AM', population_trend[12]],
-         ['', population_trend[13]],
-         ['', population_trend[14]],
-         ['', population_trend[15]],
-         ['', population_trend[16]],
-         ['', population_trend[17]],
-         ['', population_trend[18]],
-         ['', population_trend[19]],
-         ['', population_trend[20]],
-         ['', population_trend[21]],
-         ['', population_trend[22]],
-         ['', population_trend[23]],
-         ['12 PM', population_trend[24]],
-         ['', population_trend[25]],
-         ['', population_trend[26]],
-         ['', population_trend[27]],
-         ['', population_trend[28]],
-         ['', population_trend[29]],
-         ['', population_trend[30]],
-         ['', population_trend[31]],
-         ['', population_trend[32]],
-         ['', population_trend[33]],
-         ['', population_trend[34]],
-         ['', population_trend[35]],
-         ['6 PM', population_trend[36]],
-         ['', population_trend[37]],
-         ['', population_trend[38]],
-         ['', population_trend[39]],
-         ['', population_trend[40]],
-         ['', population_trend[41]],
-         ['', population_trend[42]],
-         ['', population_trend[43]],
-         ['', population_trend[44]],
-         ['', population_trend[45]],
-         ['', population_trend[46]],
-         ['', population_trend[47]],
+         ['12:00 AM', population_trend[0]],
+         ['12:30 AM', population_trend[1]],
+         ['1:00 AM', population_trend[2]],
+         ['1:30 AM', population_trend[3]],
+         ['2:00 AM', population_trend[4]],
+         ['2:30 AM', population_trend[5]],
+         ['3:00 AM', population_trend[6]],
+         ['3:30 AM', population_trend[7]],
+         ['4:00 AM', population_trend[8]],
+         ['4:30 AM', population_trend[9]],
+         ['5:00 AM', population_trend[10]],
+         ['5:30 AM', population_trend[11]],
+         ['6:00 AM', population_trend[12]],
+         ['6:30 AM', population_trend[13]],
+         ['7:00 AM', population_trend[14]],
+         ['7:30 AM', population_trend[15]],
+         ['8:00 AM', population_trend[16]],
+         ['8:30 AM', population_trend[17]],
+         ['9:00 AM', population_trend[18]],
+         ['9:30 AM', population_trend[19]],
+         ['10:00 AM', population_trend[20]],
+         ['10:30 AM', population_trend[21]],
+         ['11:00 AM', population_trend[22]],
+         ['11:30 AM', population_trend[23]],
+         ['12:00 PM', population_trend[24]],
+         ['12:30 PM', population_trend[25]],
+         ['1:00 PM', population_trend[26]],
+         ['1:30 PM', population_trend[27]],
+         ['2:00 PM', population_trend[28]],
+         ['2:30 PM', population_trend[29]],
+         ['3:00 PM', population_trend[30]],
+         ['3:30 PM', population_trend[31]],
+         ['4:00 PM', population_trend[32]],
+         ['4:30 PM', population_trend[33]],
+         ['5:00 PM', population_trend[34]],
+         ['5:30 PM', population_trend[35]],
+         ['6:00 PM', population_trend[36]],
+         ['6:30 PM', population_trend[37]],
+         ['7:00 PM', population_trend[38]],
+         ['7:30 PM', population_trend[39]],
+         ['8:00 PM', population_trend[40]],
+         ['8:3O PM', population_trend[41]],
+         ['9:00 PM', population_trend[42]],
+         ['9:30 PM', population_trend[43]],
+         ['10:00 PM', population_trend[44]],
+         ['10:30 PM', population_trend[45]],
+         ['11:00 PM', population_trend[46]],
+         ['11:30 PM', population_trend[47]],
          ]);
+   
+   return data;
+}
 
+/* Create packaged graph for infowindow using data */
+function infowindowGraph(data) {
    // Set chart options
    var options = {
-      'title':'Trend of Open Parking Spots',
-      'width':400,
-      'height':175,
-      'colors':['#26A1D6'],
+      title: 'Trend of Open Parking Spots',
+      hAxis: {
+         title: 'Time of Day',
+         textPosition: 'none'
+      },
+      width: 400,
+      height: 175,
+      colors: ['#26A1D6']
    };
 
    var node = document.createElement('div'),
@@ -289,6 +300,34 @@ function generateGraph(population_trend, predict_available) {
 
    chart.draw(data, options);
    return nodeToString(node)
+}
+
+/* Create interactive graph using data */
+function interactiveGraph(data, predict, name, id) {
+   var width = $(window).width();
+   console.log(width);
+   // Set chart options
+   var options = {
+      title: name + ' ' + id,
+      hAxis: {
+         title: 'Time of Day'
+      },
+      vAxis: {
+         title: 'Open Spots'
+      },
+      width: width,
+      height: 310,
+      colors: ['#26A1D6'],
+      crosshair: {
+         color: '#000',
+         trigger: 'selection'
+      }
+   };
+
+   var node = document.getElementById('interactive-graph'),
+       graph = new google.visualization.LineChart(node);
+   graph.draw(data, options);
+   graph.setSelection([{row: predict, column: 1}]);
 }
 
 /* Helper function to extract string from HTMLElement */

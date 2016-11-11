@@ -23,3 +23,11 @@ function initializePage() {
       }
    });
 }
+
+function openGraph() {
+   document.getElementById("detail-graph").style.width = "100%";
+}
+
+function closeGraph() {
+   document.getElementById("detail-graph").style.width = "0%";
+}

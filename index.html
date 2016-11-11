@@ -57,6 +57,25 @@
     </div>
    </div>
     
+   <div id="detail-graph" class="overlay">
+      <!-- Button to close overlay -->
+      <div class="container-fluid full-width">
+         <div class="row">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4" align="center">
+               <h2 id="trend-title">Average Trend of Open Parking</h2>
+            </div>
+            <div class="col-xs-4" align="right">
+               <a href="javascript:void(0)" class="closebtn" onclick="closeGraph()">&times;</a>
+            </div>
+         </div>
+         <!-- content -->
+         <div class="row">
+            <div id="interactive-graph"></div>
+         </div>
+      </div>
+   </div>
+   
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVFEMeSuV8YL9OcBMx7wmFx71BkscZEbo&libraries=places&callback=initMap">
       </script>
