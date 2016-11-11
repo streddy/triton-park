@@ -52,7 +52,7 @@
    top: 0;
    background-color: orange;
    opacity: 0.95;
-   overflow: hidden;
+   overflow-y: scroll;
    transition: 0.5s;
 }
 
