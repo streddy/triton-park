@@ -122,12 +122,16 @@
 #title{
     font-family: Roboto;
     color : white;
+    font-weight:100;
     text-shadow: 0 0 45px white;
+    line-height: 50px;
 }
 
 #trend-title{
     font-family: Roboto;
-    color : white;
+    color: white;
+    font-weight:100;
+    margin-top: 35px;
 }
 
 #login{
