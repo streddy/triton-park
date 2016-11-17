@@ -305,7 +305,6 @@ function infowindowGraph(data) {
 /* Create interactive graph using data */
 function interactiveGraph(data, predict, name, id) {
    var width = $(window).width();
-   console.log(width);
    // Set chart options
    var options = {
       title: name + ' ' + id,

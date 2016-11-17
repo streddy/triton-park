@@ -21,6 +21,10 @@ function initializePage() {
          geocodeAddress(loc);
          relevantLots(type);
       }
+
+      $('html, body').animate({
+         scrollTop: $("#map").offset().top
+      }, 1000);
    });
 }
 
