@@ -1,0 +1,26 @@
+{
+  "name": "triton-park",
+  "version": "1.0.0",
+  "description": "Triton Park is a webapp that utilizes the Internet of Things to help students and faculty find the best parking spots on campus!",
+
+  "scripts": {
+     "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/streddy/triton-park.git"
+  },
+  "dependencies": {
+     "express": "3.x",
+     "express3-handlebars": "*"
+  },
+  "engines": {
+     "node": "0.10.x"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/streddy/triton-park/issues"
+  },
+  "homepage": "https://github.com/streddy/triton-park#readme"
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       
+      <meta charset="utf-8">
+       
+       <!--mobile fit-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <font face="Roboto;"/>
+      <title>Triton Park</title>
+      
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" media="screen" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
+      <link href="public/css/index.css" rel="stylesheet">
+      <script type="text/javascript" src="jquery.min.js"></script> 
+      
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+      <script src="public/js/handler.js"></script>
+      <script src="public/js/map.js"></script>
+     
+   </head>
+
+   <body style ="margin:0px; height:0px; background-color:#26A1D6">
+  
+   <div class="container-fluid" id = "fixed">
+    <div class="row1">
+        <h2 id = "title"><center>Triton Park</center></h2> 
+    </div>
+
+
+    <div class="row2 form-group" id = "userInput">
+       <input id="pac-input" class="controls" type="text" placeholder="Enter Your Destination">      
+    </div>
+
+    <div class="row3">
+      <!--Selection for permit type-->
+      <div class="col-xs-6" align="right">
+        <select class = "selectpicker" title="Your Permit Type" data-style="btn-warning" data-width="fit" id="permit-select">
+         <option value = "A Permit"> Permit-A</option>
+         <option value = "B Permit"> Permit-B</option>
+         <option value = "S Permit"> Permit-S</option>
+        </select>
+      </div>
+
+        <!-- Find parking button-->
+      <div class="col-xs-6">
+        <button id="find-park" type="button" class = "btn btn-warning">Find Parking</button>
+      </div>
+      </div>
+      
+      <br>
+      <br>
+
+       <!--//Below is the Script for Map-->
+    <div class="row4">
+       <div class = "element" id="map" style="width:100%;height:530px"></div>
+    </div>
+   </div>
+    
+   <div id="detail-graph" class="overlay">
+      <!-- Button to close overlay -->
+      <div class="container-fluid full-width">
+         <div class="row">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4" align="center">
+               <h2 id="trend-title">Average Trend of Open Parking</h2>
+            </div>
+            <div class="col-xs-4" align="right">
+               <a href="javascript:void(0)" class="closebtn" onclick="closeGraph()">&times;</a>
+            </div>
+         </div>
+         <!-- content -->
+         <div class="row">
+            <div id="interactive-graph"></div>
+         </div>
+      </div>
+   </div>
+   
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVFEMeSuV8YL9OcBMx7wmFx71BkscZEbo&libraries=places&callback=initMap">
+      </script>
+
+      <!--^^^^^^^^^^^^^^^Scripts for map^^^^^^^^^^^^^^^^^^-->
+      
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
+          <script type="text/javascript">
+               $(document).ready(function() {
+               $('.selectpicker').selectpicker();
+              });
+          </script>
+
+    </body>
+</html>
