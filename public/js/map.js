@@ -39,6 +39,13 @@ function geocodeAddress(address) {
       if(status === 'OK') {
          loc_lat = results[0].geometry.location.lat();
          loc_lng = results[0].geometry.location.lng();
+
+         if(getDistance(campus.lat, campus.lng) > 3000) {
+            loc_lat = campus.lat;
+            loc_lng = campus.lng;
+
+            alert('Unfortunately, Google geocoding failed for this location. Here are the best parking lots centered around Geisel Library.');
+         }
       } else {
          alert('Geocode was not successful for the following reason: ' + status);
       }
