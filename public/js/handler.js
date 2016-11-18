@@ -3,6 +3,8 @@ $(document).ready(function() {
 });
 
 function initializePage() {
+   var firstClick = true;
+
    $('#find-park').click(function(){
       var menu = document.getElementById('permit-select');
       var type = menu.value;
@@ -19,6 +21,11 @@ function initializePage() {
          deleteMarkers();
          geocodeAddress(loc);
          relevantLots(type);
+
+         if(firstClick) {
+            $('#map').animate({height:'530px'})
+            firstClick = false;
+         }
 
          $('html, body').animate({
             scrollTop: $("#map").offset().top
