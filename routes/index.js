@@ -5,3 +5,7 @@ exports.view = function(req, res){
 exports.secondaryView = function(req, res){
    res.render('index', {alternate: true});
 };
+
+exports.tutorial = function(req, res){
+   res.render('tutorial');
+};

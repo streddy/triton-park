@@ -25,6 +25,10 @@ function initializePage() {
          }, 1000);
       }
    });
+
+   $('#tutorial').click(function(){
+      window.location.href = '/tutorial';
+   });
 }
 
 function openGraph() {
