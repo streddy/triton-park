@@ -30,8 +30,8 @@
                 <use xlink:href="#text-2"></use>
             </g>
             <text id="The-eaiest-way-to-fi" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" fill="#FFFFFF">
-                <tspan x="112.512222" y="368">The eaiest way </tspan>
-                <tspan x="82.0844879" y="396">to find parking spots </tspan>
+                <tspan x="110.512222" y="368">The easiest way </tspan>
+                <tspan x="86.0844879" y="396">to find parking spots </tspan>
                 <tspan x="132.979019" y="424">on campus</tspan>
             </text>
             <rect id="Rectangle-4" fill="#077FB3" filter="url(#filter-4)" x="70.2294618" y="559" width="273.770538" height="43"></rect>
