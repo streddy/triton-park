@@ -94,6 +94,10 @@
   border-color: #4d90fe;
 }
 
+#find-park {
+   width: 154px;
+}
+
 #firstHeading h3 {
    display: block;
    font-size: 2em;

@@ -25,23 +25,8 @@
   
    <div class="container-fluid" id = "fixed">
     <div class="row1">
-      <div class="col-xs-4">
-         <br>
-         <button id="tutorial" type="button" class="btn btn-warning">
-         {{#if alternate}}
-            How do I use Triton Park?
-         {{else}}
-            Help
-         {{/if}}
-         </button>
-      </div>
-      <div class="col-xs-4" align="center">
-         <h2 id = "title"><center>Triton Park</center></h2>
-      </div>
-      <div class="col-xs-4"></div>
+      <h2 id = "title"><center>Triton Park</center></h2>
     </div>
-
-
     <div class="row2 form-group" id = "userInput">
        <input id="pac-input" class="controls" type="text" placeholder="Enter Your Destination">      
     </div>
@@ -49,7 +34,7 @@
     <div class="row3">
       <!--Selection for permit type-->
       <div class="col-xs-6" align="right">
-        <select class = "selectpicker" title="Your Permit Type" data-style="btn-warning" data-width="fit" id="permit-select">
+        <select class = "selectpicker" title="Your Permit Type" data-style="btn-warning" data-width="154" id="permit-select">
          <option value = "A Permit"> Permit-A</option>
          <option value = "B Permit"> Permit-B</option>
          <option value = "S Permit"> Permit-S</option>
@@ -65,8 +50,19 @@
       <br>
       <br>
 
+    <div class="row4"><center>
+      <button id="tutorial" type="button" class="btn btn-warning">
+      {{#if alternate}}
+         How do I use Triton Park?
+      {{else}}
+         Help
+      {{/if}}
+      </button>
+    </center></div>
+    <br>
+
        <!--//Below is the Script for Map-->
-    <div class="row4">
+    <div class="row5">
        <div class = "element" id="map" style="width:100%;height:530px"></div>
     </div>
    </div>
