@@ -18,10 +18,6 @@ function initializePage() {
       } else if(loc == "") {
          alert("Please select your destination on campus");
       } else {
-         deleteMarkers();
-         geocodeAddress(loc);
-         relevantLots(type);
-
          if(firstClick) {
             $('#map').animate({height:'530px'})
             firstClick = false;
@@ -30,6 +26,12 @@ function initializePage() {
          $('html, body').animate({
             scrollTop: $("#map").offset().top
          }, 1000);
+
+         setTimeout(function(){
+            deleteMarkers();
+            geocodeAddress(loc);
+            relevantLots(type);
+         }, 375);
       }
    });
 
