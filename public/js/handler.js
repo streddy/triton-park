@@ -36,7 +36,6 @@ function initializePage() {
    });
 
    $('#tutorial').click(function(){
-      ga('send', 'event', 'tutorial', 'click');
       window.location.href = '/tutorial';
    });
 }
